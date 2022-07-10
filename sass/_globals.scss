@@ -177,7 +177,15 @@ body{
     }
 }
 
-
+@media (max-width: 1096px) {
+    .sec-footer-cta{
+        background-image: none;
+        .footer-cta{
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
 // Que funcione cuando trabajemos con menos de 768px o md de bootstrap
 @media (max-width: 768px){
     .sec-onboarding{
