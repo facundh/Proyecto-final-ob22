@@ -34,9 +34,9 @@ body{
     @include section-display();
     display: flex;
     align-items: center;
-  
+    justify-content: center;
     .home-cta{
-        flex: 1;
+        // flex: 1;
         .cta-text{
             color: components.$color-main;
         }
