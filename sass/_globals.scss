@@ -2,16 +2,20 @@
 
 @mixin section-display{
     margin: auto;
-    padding: 3rem;  
-    width: 100%;  
-    max-width: 992px;
+    padding: 3rem;    
+    max-width: 100vw;
 }
 
-*{
+// html{
+//     min-width: 100vw;
+// }
+body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
+
 .nav{
     display: flex;
     justify-content: space-around;
@@ -31,17 +35,24 @@
     display: flex;
     align-items: center;
   
-
     .home-cta{
         flex: 1;
         .cta-text{
             color: components.$color-main;
         }
+        .home-title{
+            width: 20rem;
+            font-size: 2rem;
+        }
+        .home-description {
+            width: 300px;
+        }
+        .lead-magnet {
+            .input-col {
+                max-width: 200px;
+            }
     }
-    .home-title{
-        width: 20rem;
-        font-size: 2rem;
-    }
+}
 }
 
 .sec-features{
@@ -84,7 +95,6 @@
                 }
             }
         }
-
         .image{
             img{
                 max-width: 20rem;
@@ -94,23 +104,25 @@
 }
 
 .sec-benefits{
-    border: 1px solid #ddd;
-
-    .intro{
+    // @include section-display();
+    border-top: 1px solid #ddd;
+    .intro {
         @extend .sec-features, .intro;
     }
-
-    .benefit.cards{
+    align-items: center;
+    margin: 0;
+    .benefit-cards {
         width: 100%;
         padding: 0 2rem 2rem 2rem;
     }
 }
 
 .sec-kpis {
+    margin: auto;
     background-color: components.$color-main;
     color: white;
     padding: 4rem;
-    width: 100%;
+    max-width: 100%;
     .kpi{
         display: flex;
         flex-direction: column;
@@ -129,7 +141,8 @@
 }
 
 .sec-onboarding{
-    width: 100%;
+    // @include section-display();
+    max-width: 100%;
     .intro{
         @extend .sec-features, .intro;
     }
@@ -142,6 +155,65 @@
             flex:1;
             border-top: 2px solid #ddd;
             margin: 0 1rem;
+        }
+    }
+}
+
+.sec-footer-cta{
+    // @include section-display();
+    background-color: components.$color-footer-cta;
+    padding: 5rem;
+    background-image: url('../assets/img/bg.png');
+    background-repeat: no-repeat;
+    background-position: 100%;
+    .footer-cta{
+        width: 50%;
+        .cta-title{
+            font-size: 1rem;
+        }
+        .cta-description{
+            font-size: 1rem;
+        }
+    }
+}
+
+
+// Que funcione cuando trabajemos con menos de 768px o md de bootstrap
+@media (max-width: 768px){
+    .sec-onboarding{
+        
+        .steps{
+            flex-direction: column;
+            .icon-desc{
+                .title{
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .sec-footer-cta{
+        background-image: none;
+        .footer-cta{
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .sec-benefits{
+        .intro{
+            text-align: center;
+        }
+        .intro h3{
+            font-size: 2rem;
+        }
+    }
+    .sec-features{
+        .intro {
+            h3{
+                font-size: 3rem;
+            }
+            p{
+                font-size: 1rem;
+            }
         }
     }
 }
