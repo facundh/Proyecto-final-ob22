@@ -34,7 +34,7 @@ body{
     @include section-display();
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     .home-cta{
         // flex: 1;
         .cta-text{
